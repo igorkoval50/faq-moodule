@@ -1,1 +1,1 @@
-import './module/swag-example';
+import './module/faq-example';

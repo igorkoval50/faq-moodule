@@ -1,5 +1,5 @@
-import './page/swag-example-list';
-Shopware.Module.register('swag-example', {
+import './page/faq-example-list';
+Shopware.Module.register('faq-example', {
     type: 'core',
     name: 'Faq',
     title: 'Faq title',
@@ -8,7 +8,7 @@ Shopware.Module.register('swag-example', {
     icon: 'regular-shopping-bag',
     routes: {
         list: {
-            component: 'swag-example-list',
+            component: 'faq-example-list',
             path: 'list'
         }
     },
@@ -16,7 +16,7 @@ Shopware.Module.register('swag-example', {
         label: 'Faq title',
         color: '#ff3d58',
         parent: 'sw-content',
-        path: 'swag.example.list',
+        path: 'faq.example.list',
         icon: 'regular-shopping-bag',
         position: 100
     }]
