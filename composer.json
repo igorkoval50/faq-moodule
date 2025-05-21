@@ -1,0 +1,27 @@
+{
+    "name": "faq/faq",
+    "description": "faq/faq",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "~6.6.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "Faq\\faq",
+        "label": {
+            "de-DE": "Faq plugin",
+            "en-GB": "Faq plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Faq\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Faq\\Tests\\": "tests/"
+        }
+    }
+}
