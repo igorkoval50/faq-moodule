@@ -1,0 +1,9 @@
+{
+    "sw-cms": {
+        "blocks": {
+            "faqListing": {
+                "label": "FAQ"
+            }
+        }
+    }
+}
