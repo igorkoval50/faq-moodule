@@ -4,8 +4,8 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services-1.0.xsd">
 
     <services>
-        <service id="Faq\Entity\FaqCategory\FaqCategoryDefinition" public="true">
-            <tag name="shopware.entity.definition" />
+        <service id="Faq\Faq">
+            <argument type="service" id="custom_field_set.repository"/>
         </service>
     </services>
 </container>
