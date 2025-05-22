@@ -1,7 +1,8 @@
 {% block block_faq_listing %}
     <h2>FAQ Listing</h2>
+    {% set manufacturers = page.extensions.manufacturers ?? [] %}
 
     <div class="col-md-12">
-        {{ dump(data.manufacturers) }}
+        {{ dump(manufacturers) }}
     </div>
 {% endblock %}

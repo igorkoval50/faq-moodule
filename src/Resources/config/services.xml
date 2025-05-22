@@ -7,9 +7,9 @@
         <service id="Faq\Faq">
             <argument type="service" id="custom_field_set.repository"/>
         </service>
-        <service id="Faq\Content\Cms\Subscriber\FaqCmsElementSubscriber">
-            <argument type="service" id="product_manufacturer.repository" />
-            <tag name="kernel.event_subscriber" />
+        <service id="Faq\Subscriber\CategoryPageSubscriber">
+            <argument type="service" id="product_manufacturer.repository"/>
+            <tag name="kernel.event_subscriber"/>
         </service>
     </services>
 </container>
