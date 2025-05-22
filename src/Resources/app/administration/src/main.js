@@ -1,1 +1,1 @@
-import './module/faq-example';
+import './module/faq';
