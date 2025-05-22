@@ -1,8 +1,16 @@
-{% block block_faq_listing %}
-    <h2>FAQ Listing</h2>
-    {% set manufacturers = page.extensions.manufacturers ?? [] %}
+{% block block_contacts_list %}
+    {% set manufacturers = page.extensions.manufacturers %}
+    <div class="col-12">
+        {% if manufacturers is defined %}
+            {% for manufacturer in manufacturers.manufacturers %}
+                {% set faqCategory =  manufacturer.customFields.faq_category %}
 
-    <div class="col-md-12">
-        {{ dump(manufacturers) }}
+                {% if faqCategory %}
+                    {{ dump(manufacturer) }}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>No manufacturers found</p>
+        {% endif %}
     </div>
 {% endblock %}

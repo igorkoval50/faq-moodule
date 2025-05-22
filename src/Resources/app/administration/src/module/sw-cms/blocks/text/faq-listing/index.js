@@ -15,7 +15,7 @@ Shopware.Service('cmsService').registerCmsBlock({
         sizingMode: 'boxed',
     },
     slots: {
-        content: {
+        faq: {
             type: 'text',
             default: {
                 config: {

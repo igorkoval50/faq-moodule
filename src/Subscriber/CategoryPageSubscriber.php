@@ -2,15 +2,17 @@
 
 namespace Faq\Subscriber;
 
-use Shopware\Storefront\Page\Category\CategoryPageLoadedEvent;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Storefront\Page\GenericPageLoadedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Shopware\Core\Framework\Struct\ArrayEntity;
 
 class CategoryPageSubscriber implements EventSubscriberInterface
 {
-    private EntityRepositoryInterface $manufacturerRepository;
+    private EntityRepository $manufacturerRepository;
 
-    public function __construct(EntityRepositoryInterface $manufacturerRepository)
+    public function __construct(EntityRepository $manufacturerRepository)
     {
         $this->manufacturerRepository = $manufacturerRepository;
     }
@@ -18,18 +20,25 @@ class CategoryPageSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            CategoryPageLoadedEvent::class => 'onCategoryPageLoaded',
+            GenericPageLoadedEvent::class => 'onCategoryPageLoaded'
         ];
     }
 
-    public function onCategoryPageLoaded(CategoryPageLoadedEvent $event): void
+    public function onCategoryPageLoaded(GenericPageLoadedEvent $event): void
     {
+        $context = $event->getContext();
         $criteria = new Criteria();
-        $criteria->addSorting(new FieldSorting('name'));
-        $manufacturers = $this->manufacturerRepository->search($criteria, $event->getContext())->getEntities();
+        
+        // Get manufacturers
+        $manufacturers = $this->manufacturerRepository->search($criteria, $context);
 
-        $extension = new ManufacturersExtension($manufacturers);
-
-        $event->getPage()->addExtension('manufacturers', $extension);
+        
+        // Create an ArrayEntity with the manufacturers
+        $manufacturerExtension = new ArrayEntity([
+            'manufacturers' => $manufacturers->getElements()
+        ]);
+        
+        // Add the extension to the page
+        $event->getPage()->addExtension('manufacturers', $manufacturerExtension);
     }
 }
