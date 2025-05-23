@@ -1,0 +1,15 @@
+.faq-load-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 31px;
+
+  .btn {
+    padding: 9px 20px 11px 20px;
+    background: $btn;
+    color: $btnText;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 4px;
+  }
+}

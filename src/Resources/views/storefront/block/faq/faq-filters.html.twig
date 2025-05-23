@@ -1,0 +1,21 @@
+{% block faq_filters %}
+    {% if manufacturers is defined %}
+        <div class="faq-filters">
+            <a href="#" class="faq-filter faq-all active" data-filter="{{ filter }}">
+                <strong class="faq-title">{{ "faq.all"|trans }}</strong>
+            </a>
+
+            {% for manufacturer in manufacturers.manufacturers %}
+                {% set faqCategory =  manufacturer.customFields.faq_category %}
+
+                {% if faqCategory %}
+                    {% sw_include '@Storefront/storefront/block/faq/faq-filter.html.twig' with {
+                        name: manufacturer.translated.name,
+                        filter: manufacturer.translated.customFields.faq_category,
+                        media: manufacturer.mediaId,
+                    } %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

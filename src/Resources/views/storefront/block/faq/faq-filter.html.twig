@@ -1,3 +1,23 @@
 {% block faq_filter %}
+    {% set mediaId = media %}
+    {% set name = name %}
+    {% set filter = filter %}
 
+    {% if mediaId %}
+        {% set mediaCollection = searchMedia([mediaId], context.context) %}
+        {% set media = mediaCollection.get(mediaId) %}
+    {% endif %}
+
+    <a href="#" class="faq-filter" data-filter="{{ filter }}">
+        <span class="faq-image-wrapper">
+            {% sw_thumbnails 'faq-image' with {
+                media: media,
+                attributes: {
+                    class: 'faq-image'
+                }
+            } %}
+        </span>
+
+        <strong class="faq-title">{{ name }}</strong>
+    </a>
 {% endblock %}

@@ -2,6 +2,7 @@
     "faq": {
         "headline": "Noch Unklarheiten?",
         "placeholder": "Durchsuchen",
-        "loadMore": "Weitere Fragen laden"
+        "loadMore": "Weitere Fragen laden",
+        "all": "Alle"
     }
 }
