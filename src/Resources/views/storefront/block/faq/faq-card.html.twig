@@ -1,4 +1,5 @@
 {% block faq_card %}
+    {% set index = loop.index %}
     {% set mediaId = media %}
     {% set name = name %}
     {% set description = description %}
@@ -9,7 +10,7 @@
         {% set media = mediaCollection.get(mediaId) %}
     {% endif %}
 
-    <div class="faq-card" data-filter="{{ filter }}">
+    <div class="faq-card {% if index > 3 and index < 7 %}d-none d-sm-block{% endif %}{% if index > 6 %}faq-hide d-none{% endif %}" data-filter="{{ filter }}">
         <div class="faq-card-top">
             <div class="faq-image-wrapper">
                 {% sw_thumbnails 'faq-image' with {

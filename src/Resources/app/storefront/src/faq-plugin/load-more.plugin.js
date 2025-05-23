@@ -2,10 +2,11 @@ import Plugin from 'src/plugin-system/plugin.class';
 
 export default class LoadMorePlugin extends Plugin {
     init() {
-        window.addEventListener('click', this.onClick.bind(this));
+        window.addEventListener('click', this.faqShows.bind(this));
     }
 
-    onClick() {
-        console.log(222);
+    faqShows() {
+        document.querySelectorAll('.faq-card').forEach(item => item.classList.remove('d-none'));
+        this.el.classList.add('d-none');
     }
 }
