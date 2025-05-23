@@ -1,6 +1,7 @@
 {% block block_contacts_list %}
     {% set manufacturers = page.extensions.manufacturers %}
     <div class="col-12">
+        {% sw_include "@Storefront/storefront/block/faq/faq-search.html.twig" %}
         {% sw_include "@Storefront/storefront/block/faq/faq-filters.html.twig" %}
         {% sw_include "@Storefront/storefront/block/faq/faq-cards.html.twig" %}
         {% sw_include "@Storefront/storefront/block/faq/faq-load-more.html.twig" %}
