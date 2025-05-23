@@ -1,6 +1,10 @@
 {% block faq_search %}
-    <div class="faq-search">
-        <h2>{{ 'faq.headline'|trans }}</h2>
-        <input type="text" id="faq-search" placeholder="{{ 'faq.placeholder'|trans }}" class="form-control mb-3" data-search-plugin />
+    <div class="faq-search-wrapper">
+        <h2 class="faq-headline">{{ 'faq.headline'|trans }}</h2>
+
+        <div class="faq-search-input">
+            {% sw_icon 'search' %}
+            <input type="text" id="faq-search" placeholder="{{ 'faq.placeholder'|trans }}" class="faq-search form-control" data-search-plugin />
+        </div>
     </div>
 {% endblock %}

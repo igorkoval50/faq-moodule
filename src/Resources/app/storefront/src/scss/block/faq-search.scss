@@ -1,0 +1,49 @@
+.faq-search-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .faq-headline {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 44px;
+    color: $main;
+
+    @include media-breakpoint-down('sm') {
+      font-size: 32px;
+      line-height: 39px;
+    }
+  }
+  
+  .faq-search-input {
+    max-width: 420px;
+    width: 100%;
+    position: relative;
+    margin-top: 31px;
+  }
+
+  .icon-search {
+    position: absolute;
+    left: 7px;
+    top: 14px;
+    color: $placeholder;
+    transform: rotate(280deg);
+    width: 18px;
+  }
+
+  .faq-search {
+    height: 52px;
+    border: 1px solid $btn;
+    border-radius: 4px;
+    padding: 1px 12px 1px 32px;
+    font-size: 18px;
+    color: $main;
+
+    &::placeholder {
+      color: $placeholder;
+    }
+  }
+}
