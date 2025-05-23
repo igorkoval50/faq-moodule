@@ -1,4 +1,8 @@
 .cms-block-faq-listing {
   max-width: 1280px;
   margin: 0 auto;
+
+  @include media-breakpoint-down('sm') {
+    overflow: visible;
+  }
 }

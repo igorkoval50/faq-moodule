@@ -10,7 +10,6 @@
 
                 {% if faqCategory %}
                     {% sw_include '@Storefront/storefront/block/faq/faq-filter.html.twig' with {
-                        name: manufacturer.translated.name,
                         filter: manufacturer.translated.customFields.faq_category,
                         media: manufacturer.mediaId,
                     } %}
