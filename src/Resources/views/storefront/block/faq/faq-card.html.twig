@@ -10,7 +10,7 @@
         {% set media = mediaCollection.get(mediaId) %}
     {% endif %}
 
-    <div class="faq-card {% if index > 3 and index < 7 %}d-none d-sm-block{% endif %}{% if index > 6 %}faq-hide d-none{% endif %}" data-filter="{{ filter }}">
+    <div class="faq-card {% if index > 6 %}d-none{% endif %} {% if index > 3 and index < 7 %}mobile-hide{% endif %}" data-filter="{{ filter }}">
         <div class="faq-card-top">
             <div class="faq-image-wrapper">
                 {% sw_thumbnails 'faq-image' with {

@@ -1,14 +1,18 @@
 {% block faq_filters %}
     {% if manufacturers is defined %}
-        <div class="faq-filters">
-            <a href="#" class="faq-filter faq-all active" data-filter="{{ filter }}">
+        <div class="faq-filters" data-filters-plugin>
+            <a href="#" class="faq-filter faq-all active" data-filter="all">
                 <strong class="faq-title">{{ "faq.all"|trans }}</strong>
             </a>
 
-            {% for manufacturer in manufacturers.manufacturers %}
-                {% set faqCategory =  manufacturer.customFields.faq_category %}
+            {% set renderedFilters = {} %}
 
-                {% if faqCategory %}
+            {% for manufacturer in manufacturers.manufacturers %}
+                {% set faqCategory = manufacturer.customFields.faq_category %}
+
+                {% if faqCategory is not empty and renderedFilters[faqCategory] is not defined %}
+                    {% set renderedFilters = renderedFilters|merge({ (faqCategory): true }) %}
+
                     {% sw_include '@Storefront/storefront/block/faq/faq-filter.html.twig' with {
                         filter: manufacturer.translated.customFields.faq_category,
                         media: manufacturer.mediaId,

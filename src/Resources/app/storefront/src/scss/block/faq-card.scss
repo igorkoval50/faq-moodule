@@ -13,6 +13,12 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  @include media-breakpoint-down('lg') {
+    .mobile-hide {
+      display: none;
+    }
+  }
+
   .faq-card {
     background: $white;
     padding: 24px;
