@@ -1,0 +1,44 @@
+.faq-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 31px 0;
+
+  .faq-card {
+    background: $white;
+    padding: 24px;
+
+    p,
+    strong {
+      font-size: 16px;
+      line-height: 24px;
+      color: $main;
+      margin: 0;
+    }
+
+    .faq-card-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faq-card-description {
+      margin-top: 8px;
+    }
+
+    .faq-image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 46px;
+      min-height: 46px;
+      background: $grey;
+      border-radius: 50%;
+
+      img {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+}

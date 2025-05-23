@@ -1,0 +1,30 @@
+{% block faq_card %}
+    {% set mediaId = media %}
+    {% set name = name %}
+    {% set description = description %}
+    {% set filter = filter %}
+
+    {% if mediaId %}
+        {% set mediaCollection = searchMedia([mediaId], context.context) %}
+        {% set media = mediaCollection.get(mediaId) %}
+    {% endif %}
+
+    <div class="faq-card" data-filter="{{ filter }}">
+        <div class="faq-card-top">
+            <div class="faq-image-wrapper">
+                {% sw_thumbnails 'faq-image' with {
+                    media: media,
+                    attributes: {
+                        class: 'faq-image'
+                    }
+                } %}
+            </div>
+
+            <strong class="faq-title">{{ name }}</strong>
+        </div>
+
+        <div class="faq-card-description">
+            <p>{{ description }}</p>
+        </div>
+    </div>
+{% endblock %}

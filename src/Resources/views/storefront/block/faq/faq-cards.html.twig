@@ -1,0 +1,20 @@
+{% block faq_cards %}
+    {% if manufacturers is defined %}
+        <div class="faq-cards">
+            {% for manufacturer in manufacturers.manufacturers %}
+                {% set faqCategory =  manufacturer.customFields.faq_category %}
+
+                {% if faqCategory %}
+                    {% sw_include '@Storefront/storefront/block/faq/faq-card.html.twig' with {
+                        name: manufacturer.translated.name,
+                        description: manufacturer.translated.description,
+                        filter: manufacturer.translated.customFields.faq_category,
+                        media: manufacturer.mediaId,
+                    } %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No manufacturers found</p>
+    {% endif %}
+{% endblock %}

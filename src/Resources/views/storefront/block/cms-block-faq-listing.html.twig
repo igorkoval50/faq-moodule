@@ -1,16 +1,6 @@
 {% block block_contacts_list %}
     {% set manufacturers = page.extensions.manufacturers %}
     <div class="col-12">
-        {% if manufacturers is defined %}
-            {% for manufacturer in manufacturers.manufacturers %}
-                {% set faqCategory =  manufacturer.customFields.faq_category %}
-
-                {% if faqCategory %}
-                    {{ dump(manufacturer) }}
-                {% endif %}
-            {% endfor %}
-        {% else %}
-            <p>No manufacturers found</p>
-        {% endif %}
+        {% sw_include "@Storefront/storefront/block/faq/faq-cards.html.twig" %}
     </div>
 {% endblock %}
